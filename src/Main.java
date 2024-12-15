@@ -1,20 +1,29 @@
+import java.util.Scanner;
 import java.util.random.RandomGenerator;
 
 public class Main {
+    private static int a;
+    private static int b;
 
     // This is new branch
     public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) {
-            System.out.println("Hello number = " + calc(i, RandomGenerator.getDefault().nextInt()));
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter first number");
+        a = in.nextInt();
+        System.out.println("Enter second number");
+        b = in.nextInt();
+        System.out.println("Enter operation: +, -, *, /");
+        char operation = in.next().charAt(0);
+        switch (operation) {
+            case '+': System.out.println("Result = " + (a + b));
+            break;
+            case '-': System.out.println("Result = " + (a - b));
+            break;
+            case '*': System.out.println("Result = " + (a * b));
+            break;
+            case '/': System.out.println("Result = " + (a / b));
+            break;
+            default: System.out.println("Error operation");
         }
-    }
-
-    static int calc(int a, int b) {
-        if (a > b) {
-            return a * b;
-        } else if (b > 0) {
-            return a / b;
-        }
-        return 0;
     }
 }
